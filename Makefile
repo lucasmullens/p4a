@@ -28,3 +28,7 @@ output.cgi: output.c
 
 clean:
 	-rm -f $(OBJS) server client output.cgi
+runsingle: all
+	server 2000 1 1
+run:
+	server 2000 8 16
