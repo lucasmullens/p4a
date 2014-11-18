@@ -1,0 +1,9 @@
+Name: Lucas Mullens
+CSL-ID:mullens
+Name: Daniel Konen
+CSL-ID:konen
+(Leave the second name and ID blank if working alone)
+
+Linux-Implementation Details: We took a basic C webserver and added thread support. We used the producer/consumer model to allow threads to be created and wait on the producer, which is incoming requests.
+
+XV6-Implementation Details: 

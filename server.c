@@ -1,6 +1,5 @@
 #include "cs537.h"
 #include "request.h"
-#include "stdio.h"
 #include <pthread.h>
 
 // 
