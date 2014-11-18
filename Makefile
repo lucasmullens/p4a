@@ -32,3 +32,5 @@ runsingle: all
 	server 2000 1 1
 run:
 	server 2000 8 16
+test: all
+	python ~cs537-2/testing/p4a/WebServerTest.py .

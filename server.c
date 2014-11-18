@@ -55,6 +55,7 @@ void *producer(int connfd) {
     put(connfd); // p4
     pthread_cond_signal(&full); // p5
     pthread_mutex_unlock(&mutex); // p
+    return 0;
 }
 
 void *consumer(void *arg) {
@@ -79,7 +80,6 @@ int main(int argc, char *argv[])
     struct sockaddr_in clientaddr;
 
     getargs(&port, &threads, &buffers, argc, argv);
-    printf("%d buffers\n",buffers);
 
     buffer = (int*) malloc(sizeof(int) * buffers); 
     buffersize = buffers;
@@ -87,8 +87,12 @@ int main(int argc, char *argv[])
     // 
     // CS537: Create some threads...
     //
-    pthread_t p;
-    pthread_create(&p, NULL, consumer, NULL);
+    pthread_t p[threads];
+    int i;
+    for (i = 0; i < threads; ++i)
+    {
+        pthread_create(&p[i], NULL, consumer, NULL);
+    }
 
     listenfd = Open_listenfd(port);
     while (1) {
